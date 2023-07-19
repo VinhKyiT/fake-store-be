@@ -10,7 +10,7 @@ import {
 } from '@dtos/user.dto';
 import { User } from '@db/entities/user.entity';
 import { Role } from '@models/roles';
-
+import md5 from 'md5';
 const USERS = [1, 2, 3];
 
 @Injectable()
@@ -47,6 +47,7 @@ export class UsersService {
   create(dto: CreateUserDto) {
     const newUser = this.usersRepo.create(dto);
     newUser.role = dto.role ?? Role.customer;
+    newUser.password = md5(md5(dto.password));
     return this.usersRepo.save(newUser);
   }
 
