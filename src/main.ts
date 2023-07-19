@@ -30,11 +30,11 @@ async function bootstrap() {
   app.useGlobalFilters(new TypeORMExceptionFilter());
 
   const config = new DocumentBuilder()
-    .setTitle('Platzi Fake Store API')
-    .setVersion('1.0')
+    .setTitle('SHOPPE API')
+    .setVersion('1.0.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup('api/v1/docs', app, document);
 
   const seedService = app.get(SeedService);
   await seedService.init();
