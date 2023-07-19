@@ -28,7 +28,7 @@ export class SeedService {
       {
         id: 1,
         email: 'john@mail.com',
-        password: 'changeme',
+        password: '14e1b600b1fd579f47433b88e8d85291',
         name: 'Jhon',
         role: Role.customer,
         avatar: generateImage('face'),
@@ -36,7 +36,7 @@ export class SeedService {
       {
         id: 2,
         email: 'maria@mail.com',
-        password: '12345',
+        password: '14e1b600b1fd579f47433b88e8d85291',
         name: 'Maria',
         role: Role.customer,
         avatar: generateImage('face'),
@@ -44,7 +44,7 @@ export class SeedService {
       {
         id: 3,
         email: 'admin@mail.com',
-        password: 'admin123',
+        password: '14e1b600b1fd579f47433b88e8d85291',
         name: 'Admin',
         role: Role.admin,
         avatar: generateImage('face'),
