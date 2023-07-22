@@ -1,5 +1,5 @@
 const environments = {
-  dev: '.env.local',
+  dev: '.env.dev',
   prod: '.env.prod',
 };
 
