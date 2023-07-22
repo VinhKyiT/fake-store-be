@@ -29,7 +29,9 @@ export class FilesController {
     return {
       originalname: file.originalname,
       filename: file.filename,
-      location: `https://api.escuelajs.co/api/v1/files/${file.filename}`,
+      location: `${process.env.BASE_URL}${
+        process.env.NODE_ENV === 'dev' ? `:${process.env.PORT}` : ''
+      }/api/v1/files/${file.filename}`,
     };
   }
 
