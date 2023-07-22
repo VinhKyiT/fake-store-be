@@ -1,6 +1,6 @@
 const environments = {
   dev: '.env.dev',
-  prod: '.env.prod',
+  prod: '.env',
 };
 
 export default environments;
