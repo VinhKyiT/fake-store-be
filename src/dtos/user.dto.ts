@@ -11,7 +11,7 @@ import {
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Role } from '@models/roles';
-import { Field, InputType, ArgsType } from '@nestjs/graphql';
+import { Field, InputType, ArgsType, Int } from '@nestjs/graphql';
 
 @InputType()
 export class CreateUserDto {
@@ -97,4 +97,10 @@ export class FilterUsersDto {
   @IsOptional()
   @Field({ nullable: true })
   limit?: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Int, { nullable: true })
+  offset?: number;
 }

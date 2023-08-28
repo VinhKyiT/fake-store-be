@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, FindManyOptions } from 'typeorm';
 
 import {
   CreateUserDto,
@@ -29,11 +29,13 @@ export class UsersService {
   }
 
   getAll(params: FilterUsersDto) {
-    const { limit } = params;
-    if (limit) {
-      return this.usersRepo.find({ take: limit });
+    const options: FindManyOptions<User> = {};
+    const { limit, offset } = params;
+    if (limit > 0 && offset >= 0) {
+      options.take = limit;
+      options.skip = offset;
     }
-    return this.usersRepo.find();
+    return this.usersRepo.find(options);
   }
 
   async isAvailable(dto: ValidateUserDto) {
