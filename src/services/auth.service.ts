@@ -6,7 +6,6 @@ import config from '@config/config';
 import { UsersService } from './users.service';
 import { Payload } from '@models/payload.model';
 import { User } from '@db/entities/user.entity';
-import md5 from 'md5';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +17,7 @@ export class AuthService {
 
   async validateUser(email: string, pass: string) {
     const user = await this.usersService.findByEmail(email);
-    if (user && user.password === md5(md5(pass))) {
+    if (user && user.password === pass) {
       return user;
     }
     return null;
