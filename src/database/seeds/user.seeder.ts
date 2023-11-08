@@ -10,10 +10,10 @@ export default class UserSeeder implements Seeder {
     await repository.save([
       {
         id: 1,
-        email: 'john@mail.com',
-        password: 'changeme',
-        name: 'Jhon',
-        role: Role.customer,
+        email: 'kybuidev@gmail.com',
+        password: '123123',
+        name: 'Ky Bui',
+        role: Role.admin,
         avatar: generateImage('face'),
       },
       {

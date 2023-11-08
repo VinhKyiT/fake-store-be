@@ -27,16 +27,16 @@ export class SeedService {
     await usersRepo.save([
       {
         id: 1,
-        email: 'john@mail.com',
-        password: '14e1b600b1fd579f47433b88e8d85291',
-        name: 'Jhon',
-        role: Role.customer,
+        email: 'kybuidev@gmail.com',
+        password: '123123',
+        name: 'Ky Bui',
+        role: Role.admin,
         avatar: generateImage('face'),
       },
       {
         id: 2,
         email: 'maria@mail.com',
-        password: '14e1b600b1fd579f47433b88e8d85291',
+        password: '123123',
         name: 'Maria',
         role: Role.customer,
         avatar: generateImage('face'),
@@ -44,7 +44,7 @@ export class SeedService {
       {
         id: 3,
         email: 'admin@mail.com',
-        password: '14e1b600b1fd579f47433b88e8d85291',
+        password: '123123',
         name: 'Admin',
         role: Role.admin,
         avatar: generateImage('face'),
