@@ -26,7 +26,7 @@ export class AuthService {
   generateAccessToken(user: User) {
     const payload: Payload = { sub: user.id };
     return this.jwtService.sign(payload, {
-      expiresIn: '20d',
+      expiresIn: '15m',
       secret: this.configService.accessSecretKey,
     });
   }
@@ -34,7 +34,7 @@ export class AuthService {
   generateRefreshToken(user: User) {
     const payload: Payload = { sub: user.id };
     return this.jwtService.sign(payload, {
-      expiresIn: '10h',
+      expiresIn: '20d',
       secret: this.configService.refreshSecretKey,
     });
   }
@@ -59,7 +59,9 @@ export class AuthService {
         refresh_token: newRefreshToken,
       };
     } catch (error) {
-      throw new UnauthorizedException('Invalid');
+      throw new UnauthorizedException(
+        'Invalid refreshToken or expired refreshToken',
+      );
     }
   }
 }
