@@ -2,7 +2,6 @@ import { ValidationPipe, ClassSerializerInterceptor } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { TypeORMExceptionFilter } from '@utils/filters/typeorm.filter';
-import { SeedService } from '@services/seed.service';
 import { GraphqlInterceptor } from '@ntegral/nestjs-sentry';
 
 import { AppModule } from './app.module';
@@ -36,8 +35,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/v1/docs', app, document);
 
-  const seedService = app.get(SeedService);
-  await seedService.init();
+  // const seedService = app.get(SeedService);
+  // await seedService.init();
 
   await app.listen(process.env.PORT || 3001);
 }
