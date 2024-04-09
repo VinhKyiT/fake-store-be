@@ -26,7 +26,7 @@ export class AuthService {
   generateAccessToken(user: User) {
     const payload: Payload = { sub: user.id };
     return this.jwtService.sign(payload, {
-      expiresIn: '15m',
+      expiresIn: '1m',
       secret: this.configService.accessSecretKey,
     });
   }
@@ -34,7 +34,7 @@ export class AuthService {
   generateRefreshToken(user: User) {
     const payload: Payload = { sub: user.id };
     return this.jwtService.sign(payload, {
-      expiresIn: '20d',
+      expiresIn: '3m',
       secret: this.configService.refreshSecretKey,
     });
   }
